@@ -3,6 +3,7 @@ subsidioAlimentacao = 5.2
 
 numeroFuncionarios = int(input("Quantos funcionários vão ser registados?\n   -> "))
 
+
 for i in range(numeroFuncionarios):
     i += 1
 
