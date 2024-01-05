@@ -1,16 +1,21 @@
 import pygame
+import math
+
 from dimensao import obter_dimensoes
+from cores import *
 
 
 
 pygame.init()
 
 
-
 width, height = obter_dimensoes()
 janela = pygame.display.set_mode((width,height))
-pygame.display.set_caption(("Crônicas da Ruína"))
+janela.fill(BRANCO)
 
+
+pygame.display.set_caption(("Crônicas da Ruína"))
+pygame.display.update()
 
 deve_continuar = True
 
