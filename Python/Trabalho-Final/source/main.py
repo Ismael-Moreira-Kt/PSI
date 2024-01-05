@@ -1,30 +1,28 @@
 import pygame
-import math
+import pygame_menu
 
-from dimensao import obter_dimensoes
-from cores import *
+from Definitions_Variables.dimension import get_dimensions
+from Definitions_Variables.definitions import settings
+from Game.game import start_game
 
 
 
 pygame.init()
 
 
-width, height = obter_dimensoes()
-janela = pygame.display.set_mode((width,height))
-janela.fill(BRANCO)
+
+#obter dimensão da janela
+width, height = get_dimensions()
+surface = pygame.display.set_mode((width, height))
 
 
-pygame.display.set_caption(("Crônicas da Ruína"))
-pygame.display.update()
-
-deve_continuar = True
-
-
-while deve_continuar:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            deve_continuar = False
+#mostrar o menu
+menu = pygame_menu.Menu('Hungry Balls', width, height,
+                       theme=pygame_menu.themes.THEME_GREEN)
+menu.add.button('Jogar', start_game)
+menu.add.button('Definições', settings)
+menu.add.button('Sair', pygame_menu.events.EXIT)
 
 
 
-pygame.quit()
+menu.mainloop(surface)
