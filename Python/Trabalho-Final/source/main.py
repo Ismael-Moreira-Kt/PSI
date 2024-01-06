@@ -3,12 +3,14 @@ from PIL import Image, ImageTk
 
 from Definitions_Variables.settings import settings
 from Definitions_Variables.dimension import get_dimensions
-from Definitions_Variables.colors import *
+from Definitions_Variables.play_sound import play_sound 
 from Game.game import game
 
 
 
 def quitGame():
+    play_sound("Assets/audio/exit.mp3")
+    root.after(1250)
     root.destroy() 
 
 
@@ -23,7 +25,7 @@ root.geometry(f"{width}x{height}")
 
 
 # Colocar uma imagem de fundo
-background_image = Image.open("Assets/background.jpeg")
+background_image = Image.open("Assets/images/background.jpeg")
 background_image = background_image.resize((width, height))
 background_photo = ImageTk.PhotoImage(background_image)
 
@@ -32,15 +34,15 @@ background_label.place(x=0, y=0, relwidth=1, relheight=1)
 
 
 # Importar os ícones
-playIcon = Image.open("Assets/play.png")
+playIcon = Image.open("Assets/images/play.png")
 playIcon = playIcon.resize((30, 30))
 playIcon = ImageTk.PhotoImage(playIcon)
 
-settingsIcon = Image.open("Assets/settings.png")
+settingsIcon = Image.open("Assets/images/settings.png")
 settingsIcon = settingsIcon.resize((30, 30))
 settingsIcon = ImageTk.PhotoImage(settingsIcon)
 
-quitIcon = Image.open("Assets/logout.png") 
+quitIcon = Image.open("Assets/images/logout.png") 
 quitIcon = quitIcon.resize((30, 30))  
 quitIcon = ImageTk.PhotoImage(quitIcon)
 
