@@ -1,2 +1,2 @@
-def start_game():
+def game():
     print("start_game.")
